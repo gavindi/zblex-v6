@@ -1,20 +1,25 @@
-round 22 years ago, I was writing music on the Commodore 64 home computer as an active participant in the C64 'Demoscene'. Most of my work from this era has been lost except for three cruddy pieces of music which can be found on the 'High-Voltage SID Collection' under the pseudo-name of 'Gazza'.
+---------------------------------------------
+---ZBlex V6---
+A C64 Music Driver that can do everything (tm) 
+----------------------------------------------
+
+*Background*
+
+Around 22 years ago, I was writing music on the Commodore 64 home computer as an active participant in the C64 'Demoscene'. Most of my work from this era has been lost except for three cruddy pieces of music which can be found on the 'High-Voltage SID Collection' under the pseudo-name of 'Gazza'.
 
 I shouldn't mention that because the tunes that have been recovered from various demos and people are the ones that I am least proud of. Still, it's better than having nothing preserved from that era, that's for sure!
 
 Anyhow, I recently saw an attempt of disassembling the music driver of one of the C64 legends, Martin Galway and it inspired me to fill my holiday time by writing a music driver that allows for ultimate control and flexibility by removing the limitations of the way sounds (instruments) are defined.
 
+*This Music Driver*
+
 People in the know will know that I'm not talking about something that hasn't been done before. Rather, my approach was to make every single register of the SID chip (even the ADSR envelope) subject to macro-driven modulation (often loosely called wave-) tables.
 
 So, this is what I hoped to achieve with this driver:
 
-* zSPL - "zBlex SID Programming Language". Extending on the usual C64 music driver commands (such as Instrument change, tempo change & portamento), I've added the ability to do For/Next style loops and jumps to subsequences (Macros or sub-routines).
+* zSPL - "zBlex SID Programming Language". Extending on the usual C64 music driver commands (such as Instrument change, tempo change & portamento), I've added the ability to do For/Next style loops and jumps to subsequences (Macros or sub-routines). Each voice has its own stack to track these execution jumps to a depth of eight. Obviously this depth can be changed at the expense of memory.
 
-Each voice has its own stack to track these execution jumps to a depth of eight. Obviously this depth can be changed at the expense of memory.
-
-* zIPL - "zBlex Instrument Programming Language". Each property of a voice (Attack/Decay, Sustain/Release, Control, Frequency & Pulse Width) uses its own macro table each with its own capability for Do/While loops.
-
-This means that you can change arpeggios mid-note or the speed and direction of a pulse/frequency sweep. You can even flutter the envelope for echo and volume effects. It is so flexible that you could theoretically write the entire tune in the instruments macros but you would want to be mad to actually attempt this.
+* zIPL - "zBlex Instrument Programming Language". Each property of a voice (Attack/Decay, Sustain/Release, Control, Frequency & Pulse Width) uses its own macro table each with its own capability for Do/While loops.This means that you can change arpeggios mid-note or the speed and direction of a pulse/frequency sweep. You can even flutter the envelope for echo and volume effects. It is so flexible that you could theoretically write the entire tune in the instruments macros but you would want to be mad to actually attempt this.
 
 * Six Voices - Yup, it can handle those crazy arrangements where you have two real SID chips or an emulator that lets you emulate two SIDs. One of the standard tricks in C64 music is to do a rapid arpeggio to simulate a chord. 
 
@@ -30,4 +35,4 @@ Documentation - Build environment and descriptions of the zSPL & zIPL. Source co
 
 More information can be found at: http://gavingraham.com/geek-stuff-new-old/c64-retro-coding/
 
-- Gavin (Gazza)
+Gavin (Gazza)
